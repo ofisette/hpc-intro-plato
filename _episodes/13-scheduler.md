@@ -53,7 +53,7 @@ of commands) that you want to run on the cluster is called a *job*, and the proc
 scheduler to run the job is called *batch job submission*.
 
 In this case, the job we want to run is just a shell script. Let's create a demo shell script to
-run as a test. The landing pad will have a number of terminal-based text editors installed. Use
+run as a test. The cluster offers a number of terminal-based text editors. Use
 whichever you prefer. Unsure? `nano` is a pretty good, basic choice.
 
 ```
@@ -68,6 +68,8 @@ whichever you prefer. Unsure? `nano` is a pretty good, basic choice.
 
 echo -n "This script is running on "
 hostname
+sleep 20
+echo "Job done!"
 ```
 {: .output}
 
@@ -135,7 +137,7 @@ from the queue. Press `Ctrl-C` when you want to stop the `watch` command.
 > there's nothing. Where'd it go?
 >
 > Cluster job output is typically redirected to a file in the directory you launched it from.
-> Use `ls` to find and read the file.
+> Use `ls` to find the file and `cat` to read it.
 {: .discussion}
 
 ## Customising a job
@@ -168,7 +170,8 @@ script:
 
 echo -n "This script is running on "
 hostname
-echo "This script has finished successfully."
+sleep 20
+echo "Job done!"
 ```
 {: .output}
 
@@ -313,7 +316,7 @@ Now cancel the job with its job number (printed in your terminal). A clean retur
 prompt indicates that the request to cancel the job was successful.
 
 ```
-{{ site.remote.prompt }} {{site.sched.del }} 38759
+{{ site.remote.prompt }} {{site.sched.del }} 726557
 # ... Note that it might take a minute for the job to disappear from the queue ...
 {{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
 ```

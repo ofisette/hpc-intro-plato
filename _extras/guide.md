@@ -4,6 +4,12 @@ title: "Instructor Notes"
 permalink: /guide/
 ---
 
+## Instructor
+
+[Olivier Fisette](https://wiki.usask.ca/x/FINaYQ), Ph.D.<br/>
+Advanced Research Computing, ICT<br/>
+University of Saskatchewan
+
 ## Cluster roleplay instructions (from 13-scheduler)
 
 To do this exercise, you will need about 50-100 pieces of paper or sticky notes.  

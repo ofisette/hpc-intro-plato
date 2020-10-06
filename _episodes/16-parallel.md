@@ -52,7 +52,7 @@ of a circle. The program generates a large number of random points
 on a 2x2 square centered on the origin, and checks how many of
 these points fall inside the unit circle. On average, pi/4 of the
 randomly-selected points should fall in the circle, so pi can
-be estimated from 4*f, where f is the observed fraction of points
+be estimated from 4f, where f is the observed fraction of points
 that fall in the circle. Because each sample is independent, this
 algorithm is easily implemented in parallel.
 
@@ -79,22 +79,24 @@ Create a submission file, requesting more than one task on a single node:
 {: .bash}
 ```
 #!/bin/bash
-{{ site.sched.comment }} {{ site.sched.flag.name }} parallel-example
-{{ site.sched.comment }} {{ site.sched.flag.queue }} {{ site.sched.queue.testing }}
+{{ site.sched.comment }} --job-name=pi-montecarlo
 {% include {{ site.snippets }}/parallel/four-tasks.snip %}
-module load python3
+module load python/3.6.3
+module load scipy-stack
+module load mpi4py
+
 mpirun ./pi.py
 ```
 {: .output}
 
-Then submit your job. We will use the batch file to set the options,
-rather than the command line.
+Then submit your job.
+
 ```
 {{ site.remote.prompt }} {{ site.sched.submit.name }} parallel-example.sh
 ```
 {: .bash}
 
 As before, use the status commands to check when your job runs, 
-and use `ls` to locate the output file, and examine it.
+and use `ls` to locate the output file, then examine it.
 
 Is it what you expected? How good is the value for pi?

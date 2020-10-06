@@ -54,8 +54,7 @@ contribute.
 [High availability computing](https://en.wikipedia.org/wiki/High_availability)
 :    *to be defined*
 
-[High performance computing](
-https://en.wikipedia.org/w/index.php?title=High-performance_computing&redirect=no)
+[High performance computing](https://en.wikipedia.org/w/index.php?title=High-performance_computing&redirect=no)
 :    *to be defined*
 
 [Interconnect](https://en.wikipedia.org/wiki/Supercomputer_architecture)
@@ -91,3 +90,8 @@ https://www.hpcnotes.com/2015/10/essential-analogies-for-hpc-advocate.html)" ...
 
 [Parallel File System](https://en.wikipedia.org/wiki/Clustered_file_system#Distributed_file_systems)
 :    *to be defined*
+
+## Local resources
+
+* [Advanced Research Computing (ARC)](https://wiki.usask.ca/x/3YAiY) at the
+  University of Saskathewan

@@ -56,14 +56,14 @@ laptop. Refer to the [setup]({{ page.root }}/setup) section for more details.
  alt="Connect to cluster" caption="" %}
 
 
-Go ahead and log in to the cluster: {{ site.remote.name }} at {{ site.remote.location }}.
+Go ahead and log in to the {{ site.remote.name }} HPC cluster at the {{ site.remote.location }}.
 ```
 {{ site.local.prompt }} ssh {{ site.remote.user }}@{{ site.remote.login }}
 ```
 {: .bash}
 
-Remember to replace `{{ site.remote.user }}` with the username supplied by the instructors. You may be asked
-for your password. Watch out: the characters you type after the password prompt are not displayed on
+Remember to replace `{{ site.remote.user }}` by your own NSID. You will be asked
+for your password; this is the same one you use with other University of Saskatchewan resources, such as the PAWS Website. Watch out: the characters you type after the password prompt are not displayed on
 the screen. Normal output will resume once you press `Enter`.
 
 You are logging in using a program known as the secure shell or `ssh`. This establishes a temporary
@@ -86,7 +86,7 @@ notice that the current hostname is also part of our prompt!)
 {: .bash}
 
 ```
-{{ site.remote.name }}
+platolgn01
 ```
 {: .output}
 
@@ -132,12 +132,14 @@ notice that the current hostname is also part of our prompt!)
 
 ## Nodes
 
-Individual computers that compose a cluster are typically called *nodes* (although you will also
-hear people call them *servers*, *computers* and *machines*). On a cluster, there are different
-types of nodes for different types of tasks. The node where you are right now is called the *head
-node*, *login node*, *landing pad*, or *submit node*. A login node serves as an access point to the
-cluster. As a gateway, it is well suited for uploading and downloading files, setting up software,
-and running quick tests. It should never be used for doing actual work.
+Individual computers that compose a cluster are typically called *nodes*
+(although you will also hear people call them *servers*, *computers* and
+*machines*). On a cluster, there are different types of nodes for different
+types of tasks. The node where you are right now is called the *login node* or
+*submit node*. A login node serves as an access point to the cluster. As a
+gateway, it is well suited for uploading and downloading files, setting up
+software, and running quick tests. It should never be used for doing
+computationally intensive work.
 
 The real work on a cluster gets done by the *worker* (or *compute*) *nodes*. Worker nodes come in
 many shapes and sizes, but generally are dedicated to long or hard tasks that require a lot of

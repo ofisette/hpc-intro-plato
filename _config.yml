@@ -20,20 +20,20 @@
 # installation. Remember to keep the leading slash on the
 # `snippets` variable below!
 
-snippets: "/snippets_library/ComputeCanada_Graham_slurm"
+snippets: "/snippets_library/USask_Plato_slurm"
 
 local:
   prompt: "[user@laptop ~]$"
 
 remote:
-  name: "Graham"
-  login: "graham.computecanada.ca"
-  host: "gra-login1"
-  node: "aci-377"
-  location: "University of Waterloo"
+  name: "Plato"
+  login: "plato.usask.ca"
+  host: "platolgn01"
+  node: "plato310"
+  location: "University of Saskatchewan"
   homedir: "/home"
-  user: "yourUsername"
-  prompt: "[yourUsername@gra-login1 ~]$"
+  user: "nsid"
+  prompt: "[nsid@platolgn01 ~]$"
 
 sched:
   name: "SLURM"
@@ -45,7 +45,7 @@ sched:
     testing: "testing"
   status: "squeue"
   flag:
-    user: "-u yourUsername"
+    user: "-u nsid"
     interactive: ""
     histdetail: "-l -j"
     name: "-J"
@@ -57,7 +57,7 @@ sched:
   interactive: "srun"
   info: "sinfo"
   comment: "#SBATCH"
-  hist: "sacct -u yourUsername"
+  hist: "sacct -u nsid"
 
 #------------------------------------------------------------
 # Values for this lesson
@@ -77,7 +77,7 @@ title: "Introduction to High-Performance Computing"
 email: "team@carpentries.org"
 
 # Life cycle stage of the lesson ("pre-alpha", "alpha", "beta", "stable")?
-life_cycle: "alpha"
+life_cycle: "stable"
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).

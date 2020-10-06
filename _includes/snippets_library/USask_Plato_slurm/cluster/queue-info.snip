@@ -1,0 +1,44 @@
+```
+PARTITION        AVAIL  TIMELIMIT  NODES  STATE NODELIST
+plato_long          up 21-00:00:0      7  drain plato[248,310,312-313,348,419,448]
+plato_long          up 21-00:00:0     83    mix plato[225-247,309,314-347,417,420-422,424-425,427-440,442,444-447]
+plato_long          up 21-00:00:0      5  alloc plato[418,423,426,441,443]
+plato_long          up 21-00:00:0      1   idle plato311
+plato_medium        up 4-00:00:00      7  drain plato[248,310,312-313,348,419,448]
+plato_medium        up 4-00:00:00     83    mix plato[225-247,309,314-347,417,420-422,424-425,427-440,442,444-447]
+plato_medium        up 4-00:00:00      5  alloc plato[418,423,426,441,443]
+plato_medium        up 4-00:00:00      1   idle plato311
+plato_short         up   12:00:00      7  drain plato[248,310,312-313,348,419,448]
+plato_short         up   12:00:00     83    mix plato[225-247,309,314-347,417,420-422,424-425,427-440,442,444-447]
+plato_short         up   12:00:00      5  alloc plato[418,423,426,441,443]
+plato_short         up   12:00:00      1   idle plato311
+plato_gpu           up 7-00:00:00      1  alloc platogpu104
+plato_gpu           up 7-00:00:00      1   idle platogpu103
+plato_bmem          up 30-00:00:0      1   idle platobmem502
+plato_gwf_ext       up 30-00:00:0      1  drain plato205
+plato_gwf_ext       up 30-00:00:0     19   idle plato[206-224]
+plato_gwf_long      up 21-00:00:0      7  drain plato[248,310,312-313,348,419,448]
+plato_gwf_long      up 21-00:00:0     83    mix plato[225-247,309,314-347,417,420-422,424-425,427-440,442,444-447]
+plato_gwf_long      up 21-00:00:0      5  alloc plato[418,423,426,441,443]
+plato_gwf_long      up 21-00:00:0      1   idle plato311
+plato_gwf_medium    up 4-00:00:00      7  drain plato[248,310,312-313,348,419,448]
+plato_gwf_medium    up 4-00:00:00     83    mix plato[225-247,309,314-347,417,420-422,424-425,427-440,442,444-447]
+plato_gwf_medium    up 4-00:00:00      5  alloc plato[418,423,426,441,443]
+plato_gwf_medium    up 4-00:00:00      1   idle plato311
+plato_gwf_short     up   12:00:00      7  drain plato[248,310,312-313,348,419,448]
+plato_gwf_short     up   12:00:00     83    mix plato[225-247,309,314-347,417,420-422,424-425,427-440,442,444-447]
+plato_gwf_short     up   12:00:00      5  alloc plato[418,423,426,441,443]
+plato_gwf_short     up   12:00:00      1   idle plato311
+plato_gwf_burst     up    4:00:00      8  drain plato[205,248,310,312-313,348,419,448]
+plato_gwf_burst     up    4:00:00     83    mix plato[225-247,309,314-347,417,420-422,424-425,427-440,442,444-447]
+plato_gwf_burst     up    4:00:00      5  alloc plato[418,423,426,441,443]
+plato_gwf_burst     up    4:00:00     20   idle plato[206-224,311]
+plato_tse           up 30-00:00:0      2  alloc platogpu[101-102]
+cnic_gifs_gpu       up   infinite      2   idle cnic-p2irc-gpu-[19001-19002]
+cnic_giws           up   infinite     16   idle cnic-giws-cpu-19001-[01-04],cnic-giws-cpu-19002-[01-04],cnic-giws-cpu-19003-[01-04],cnic-giws-cpu-19004-[01-04]
+cnic_giws_bmem      up   infinite      1   idle cnic-giws-mem-19001
+cnic_gifs_utl       up   infinite      2  drain cnic-opal-utl-19001,cnic-p2irc-utl-19001
+cnic_gifs_utl       up   infinite      4   idle cnic-p2irc-utl-[19002-19005]
+cnic_giws_utl       up   infinite      4  drain cnic-giws-utl-[19001-19004]
+```
+{: .output}

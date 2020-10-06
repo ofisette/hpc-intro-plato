@@ -25,7 +25,7 @@ Unless the developers or prior users have provided some idea, we don't. Not unti
 ourselves at least once. We'll need to benchmark our job and experiment with it before we know how
 how great its demand for system resources.
 
-> ## Read the docs
+> ## Read the documentation
 >
 > Most HPC facilities maintain documentation as a wiki, website, or a document sent along when
 > you register for an account. Take a look at these resources, and search for the software of
@@ -33,108 +33,43 @@ how great its demand for system resources.
 {: .discussion}
 
 The most effective way of figuring out the resources required for a job to run successfully needs is
-to submit a test job, and then ask the scheduler about its impact using `{{ site.sched.hist }}`.
-
-You can use this knowledge to set up the next job with a close estimate of its load on the system. A
-good general rule is to ask the scheduler for 20% to 30% more time and memory than you expect the
-job to need. This ensures that minor fluctuations in run time or memory use will not result in your
-job being cancelled by the scheduler. Keep in mind that if you ask for too much, your job may not
-run even though enough resources are available, because the scheduler will be waiting to match what
-you asked for.
-
-> ## Benchmarking `fastqc`
->
-> Create a job that runs the following command in the same directory as the `.fastq` files
-> 
-> ```
-> {{site.remote.prompt }} fastqc name_of_fastq_file
-> ```
-> {: .bash}
-> 
-> You'll need to figure out a good amount of resources to allocate for this first "test run". You
-> might also want to have the scheduler email you to tell you when the job is done.
->
-> *Hint:* The job only needs 1 CPU and not too much memory or time. The trick is figuring out just 
-> how much you'll need!
->
-> > ## Is `fastqc` available?
-> > 
-> > You might need to load the *fastqc* module before `fastqc` will be available. Unsure?
-> > Run
-> > 
-> > ```
-> > {{ site.remote.prompt }} which fastqc
-> > ```
-> > {: .bash}
-> {: .discussion}
->
-> > ## Solution
-> >
-> > First, write the {{ site.sched.name }} script to run `fastqc` on the
-> > file supplied at the command-line.
-> >
-> > ```
-> > {{ site.remote.prompt }} cat fastqc-job.sh
-> > ```
-> > {: .bash}
-> >
-> > ```
-> > #!/bin/bash
-> > {{ site.sched.comment }} {{ site.sched.flag.time }} 00:10:00
-> >
-> > fastqc $1
-> > ```
-> >
-> > Now, create and run a script to launch a job for each `.fastq` file.
-> >
-> > ```
-> > {{ site.remote.prompt }} cat fastqc-launcher.sh
-> > ```
-> > {: .bash}
-> >
-> > ```
-> > for f in *.fastq
-> > do
-> >     {{ site.sched.submit.name }} {{ site.sched.submit.options }} fastqc-job.sh $f
-> > done 
-> > ```
-> > {: .output}
-> >
-> > ```
-> > {{ site.remote.prompt }} chmod +x fastqc-launcher.sh
-> > {{ site.remote.prompt }} ./fastqc-launcher.sh
-> > ```
-> > {: .bash}
-> {: .solution}
-{: .challenge}
-
-Once the job completes (note that it takes much less time than expected), we can query the scheduler
-to see how long our job took and what resources were used. We will use `{{ site.sched.hist }}` to
-get statistics about our job.
+to submit a test job, and then ask the scheduler about its impact using `sacct`.
 
 ```
-{{ site.remote.prompt }} {{ site.sched.hist }}
+{{ site.remote.prompt }} sacct
 ```
 {: .bash}
-
-{% include {{ site.snippets }}/resources/account-history.snip %}
 
 This shows all the jobs we ran recently (note that there are multiple entries per job). To get
 info about a specific job, we change command slightly.
 
 ```
-{{ site.remote.prompt }} {{ site.sched.hist }} {{ site.sched.flag.histdetail }} 1965
+{{ site.remote.prompt }} sacct -j 727107
 ```
 {: .bash}
 
-It will show a lot of info, in fact, every single piece of info collected on your job by the
-scheduler. It may be useful to redirect this information to `less` to make it easier to view (use
-the left and right arrow keys to scroll through fields).
+This shows a lot of information, even more if you use the long display option,
+`-l`. Plato also has a convenience command, `seff`, that gives a terser output.
 
 ```
-{{ site.remote.prompt }} {{ site.sched.hist }} {{ site.sched.flag.histdetail }} 1965 | less
+{{ site.remote.prompt }} seff 727107
 ```
 {: .bash}
+
+```
+Job ID: 727107
+Cluster: plato
+User/Group: nsid/nsid
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 4
+CPU Utilized: 00:00:04
+CPU Efficiency: 25.00% of 00:00:16 core-walltime
+Job Wall-clock time: 00:00:04
+Memory Utilized: 1.12 MB
+Memory Efficiency: 0.05% of 2.00 GB
+```
+{: .output}
 
 Some interesting fields include the following:
 
@@ -145,30 +80,22 @@ Some interesting fields include the following:
 * **MaxDiskRead**: Amount of data read from disk.
 * **MaxDiskWrite**: Amount of data written to disk.
 
+You can use this knowledge to set up the next job with a close estimate of its load on the system. A
+good general rule is to ask the scheduler for 20% to 30% more time and memory than you expect the
+job to need. This ensures that minor fluctuations in run time or memory use will not result in your
+job being cancelled by the scheduler. Keep in mind that if you ask for too much, your job may not
+run even though enough resources are available, because the scheduler will be waiting to match what
+you asked for.
+
 ## Measuring the statistics of currently running tasks
 
-> ## Connecting to Nodes
->
-> Typically, clusters allow users to connect directly to compute nodes from the head 
-> node. This is useful to check on a running job and see how it's doing, but is not
-> a recommended practice in general, because it bypasses the resource manager.
->
-> If you need to do this, check where a job is running with `{{ site.sched.status }}`, then
-> run `ssh nodename`.
->
-> Give it a try!
->
-> > ## Solution
-> >
-> > ```
-> > {{ site.remote.prompt }} ssh {{ site.sched.node }}
-> > ```
-> > {: .bash}
-> {: .solution}
-{: .challenge}
+### Connecting to Nodes
 
-We can also check on stuff running on the login node right now the same way (so it's 
-not necessary to `ssh` to a node for this example).
+Typically, clusters allow users to connect to compute nodes where they have
+running jobs. This is useful to check on a running job and see how it's doing.
+To know which node to connect to, use `{{ site.sched.status }}`. Then, run `ssh
+nodename`. Once you are on the node of interest, use programs such as `top` or
+`ps`, as described below.
 
 ### Monitor system processes with `top`
 
@@ -195,8 +122,7 @@ Overview of the most important fields:
 * `COMMAND`: What command was used to launch a process?
 
 `htop` provides a [curses]()-based overlay for `top`, producing a better-organized and "prettier"
-dashboard in your terminal. Unfortunately, it is not always available. If this is the case,
-*politely* ask your system administrators to install it for you.
+dashboard in your terminal.
 
 ### `ps `
 

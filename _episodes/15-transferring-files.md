@@ -12,9 +12,9 @@ keypoints:
 - "You can use an SFTP client like FileZilla to transfer files through a GUI."
 ---
 
-Computing with a remote computer offers very limited use if we cannot get files to or from the
-cluster. There are several options for transferring data between computing resources, from command
-line options to GUI programs, which we will cover here.
+Computing with a remote computer offers very limited use if we cannot get files
+to or from the cluster. There are several options for transferring data between
+computing resources.
 
 ## Download files from the internet using wget
 
@@ -64,7 +64,7 @@ To transfer *to* another computer:
 > > Now, transfer it to {{ site.remote.name }}:
 > >
 > > ```
-> > {{ site.local.prompt }} scp calling-card.txt {{ site.remote.user }}@{{ site.remote.login }}:~/
+> > {{ site.local.prompt }} scp calling-card.txt {{ site.remote.user }}@{{ site.remote.login }}:/home/nsid/
 > > ```
 > > {: .bash}
 > >
@@ -75,15 +75,9 @@ To transfer *to* another computer:
 > {: .solution}
 {: .challenge}
 
-To download *from* another computer:
-```
-{{ site.local.prompt }} scp {{ site.remote.user }}@{{ site.remote.login }}:path/on/{{ site.remote.name }}/file.txt path/to/local/
-```
-{: .bash}
-
-Note that we can simplify doing this by shortening our paths. On the remote computer, everything
-after the `:` is relative to our home directory. We can simply just add a `:` and leave it at that
-if we don't care where the file goes.
+We can often simplify the path given to the command. On the remote computer,
+everything after the `:` is relative to our home directory. A single `:` would
+put a file directly in your home directory.
 
 ```
 {{ site.local.prompt }} scp local-file.txt {{ site.remote.user }}@{{ site.remote.login }}:
@@ -93,7 +87,7 @@ if we don't care where the file goes.
 To recursively copy a directory, we just add the `-r` (recursive) flag:
 
 ```
-{{ site.local.prompt }} scp -r some-local-folder {{ site.remote.user }}@{{ site.remote.login }}:target-directory/
+{{ site.local.prompt }} scp -r some-local-folder/ {{ site.remote.user }}@{{ site.remote.login }}:target-directory/
 ```
 {: .bash}
 
@@ -103,8 +97,15 @@ Existing files on the remote system will not be modified, unless
 there are files from the local system with the same name, in which
 case the remote files will be overwritten.
 
-A trailing slash on the target directory is optional, and has no
-effect for `scp -r`, but is important in other commands, like `rsync`.
+The trailing slashes in the directory names are optional, and have no effect for `scp
+-r`, but they are important in other commands, like `rsync`.
+
+To download *from* another computer:
+```
+{{ site.local.prompt }} scp {{ site.remote.user }}@{{ site.remote.login }}:path/on/{{ site.remote.name }}/file.txt path/to/local/
+```
+{: .bash}
+
 
 > ## A note on `rsync`
 >

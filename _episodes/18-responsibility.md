@@ -80,9 +80,6 @@ the `kill` command along with the *PID* to terminate the process.
 > {: .solution}
 {: .challenge}
 
-If you experience performance issues with a login node you should report it to the system
-staff (usually via the helpdesk) for them to investigate.
-
 ## Test before scaling
 
 Remember that you are generally charged for usage on shared systems. A simple mistake in a job

@@ -38,7 +38,7 @@ researchers to prevent software versioning issues from affecting their results.
 Dependencies are where a particular software package (or even a particular version)
 depends on having access to another software package (or even a particular version of
 another software package). For example, the VASP materials science software may 
-depend on having a particular version of the FFTW (Fastest Fourer Transform in the West)
+depend on having a particular version of the FFTW (Fastest Fourier Transform in the West)
 software library available for it to work.
 
 ## Environment modules
@@ -83,7 +83,12 @@ so
 {: .bash}
 
 ```
-No Modulefiles Currently Loaded.
+Currently Loaded Modules:
+  1) nixpkgs/16.09   (S)      4) icc/.2016.4.258   (H)   7) openmpi/2.1.1 (m)
+  2) imkl/11.3.4.258 (math)   5) ifort/.2016.4.258 (H)   8) StdEnv/2016.4 (S)
+  3) gcccore/.5.4.0  (H)      6) intel/2016.4      (t)
+
+[Some output removed for clarity]
 ```
 {: .output}
 
@@ -147,14 +152,23 @@ issues where only one particular version of some software will be suitable. Perh
 only happened in a certain version, or version X broke compatibility with a file format you use. In
 either of these example cases, it helps to be very specific about what software is loaded.
 
-Let's examine the output of `module avail` more closely.
+Let's examine the output of `module avail gcc`.
 
 ```
-{{ site.remote.prompt }} module avail
+{{ site.remote.prompt }} module avail gcc
 ```
 {: .bash}
 
-{% include {{ site.snippets }}/modules/available-modules.snip %}
+```
+[Some output removed for clarity]
+
+-------------------------------------- Core Modules --------------------------------------
+   gcc/4.8.5 (t)    gcc/5.4.0 (t,D)    gcc/7.3.0 (t)    gcc/9.1.0 (t)
+   gcc/4.9.4 (t)    gcc/6.4.0 (t)      gcc/8.3.0 (t)
+
+[Some output removed for clarity]
+```
+{: .output}
 
 {% include {{ site.snippets }}/modules/wrong-gcc-version.snip %}
 
