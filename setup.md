@@ -11,8 +11,7 @@ line](https://wiki.usask.ca/x/CoAObw) workshop, or have equivalent skills.
 
 ## SSH
 
-Attendees must bring a laptop with a terminal and SSH capabilities. We can help
-attendees prepare their laptop on request.
+Attendees must bring a laptop with a terminal and SSH capabilities.
 
 - **Windows:** Install MobaXterm from
   [http://mobaxterm.mobatek.net](http://mobaxterm.mobatek.net). Choose “Home
