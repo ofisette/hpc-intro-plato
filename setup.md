@@ -15,7 +15,8 @@ Attendees must bring a laptop with a terminal and SSH capabilities.
 
 - **Windows:** Install MobaXterm from
   [http://mobaxterm.mobatek.net](http://mobaxterm.mobatek.net). Choose “Home
-  edition” (Installer edition)” on the download page.
+  edition” (Installer edition)” on the download page. Alternatively, you can
+  use [PuTTY](https://www.putty.org/).
 
 - **Apple macOS:** Terminal and SSH programs are built in.
 
