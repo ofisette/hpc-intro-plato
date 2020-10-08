@@ -117,25 +117,10 @@ the *queue*. To check on our job's status, we check the queue using the command
 
 {% include {{ site.snippets }}/scheduler/basic-job-status.snip %}
 
-The best way to check our job's status is with `{{ site.sched.status }}`. Of course, running 
-`{{ site.sched.status }}` repeatedly to check on things can be a little tiresome. To see a real-time
-view of our jobs, we can use the `watch` command. `watch` reruns a given command at 2-second
-intervals. This is too frequent, and will likely upset your system administrator. You can change
-the interval to a more reasonable value, for example 15 seconds, with the `-n 15` parameter. Let's
-try using it to monitor another job.
-
-```
-{{ site.remote.prompt }} {{ site.sched.submit.name }} {{ site.sched.submit.options }} example-job.sh
-{{ site.remote.prompt }} watch -n 15 {{ site.sched.status }} {{ site.sched.flag.user }}
-```
-{: .bash}
-
-You should see an auto-updating display of your job's status. When it finishes, it will disappear
-from the queue. Press `Ctrl-C` when you want to stop the `watch` command.
-
 > ## Where's the output?
 >
-> On the login node, this script printed output to the terminal -- but when we exit `watch`,
+> On the login node, this script printed output to the terminal -- but when our
+> job finishes,
 > there's nothing. Where'd it go?
 >
 > Cluster job output is typically redirected to a file in the directory you launched it from.
