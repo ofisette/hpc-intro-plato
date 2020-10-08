@@ -86,6 +86,7 @@ echo "Job done!"
 > > ```
 > > This script is running on:
 > > {{ site.remote.host }}
+> > Job done!
 > > ```
 > > {: .output}
 > > 
