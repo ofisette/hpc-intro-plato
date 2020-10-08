@@ -30,16 +30,18 @@ of the community, need to consider.
 
 ## Be kind to the login nodes
 
-The login node is often busy managing all of the logged in users, creating and editing files and
-compiling software. If the machine runs out of memory or processing capacity, it will become very
-slow and unusable for everyone. While the machine is meant to be used, be sure to do so responsibly
-&endash; in ways that will not adversely impact other users' experience.
+The login node is often busy managing all of the logged in users, creating and
+editing files and compiling software. If the machine runs out of memory or
+processing capacity, it will become very slow and unusable for everyone. While
+the machine is meant to be used, be sure to do so responsibly, in ways that will
+not adversely impact other users' experience.
 
-Login nodes are always the right place to launch jobs. Cluster policies vary, but they may also be
-used for proving out workflows, and in some cases, may host advanced cluster-specific debugging or
-development tools. The cluster may have modules that need to be loaded, possibly in a certain order,
-and paths or library versions that differ from your laptop, and doing an interactive test run on the
-head node is a quick and reliable way to discover and fix these issues.
+Login nodes are always the right place to launch jobs. Cluster policies vary,
+but they may also be used for proving out workflows, and in some cases, may host
+advanced cluster-specific debugging or development tools. The cluster may have
+modules that need to be loaded, possibly in a certain order, and paths or
+library versions that differ from your laptop, and doing an interactive test run
+on the head node is a quick and reliable way to discover and fix these issues.
 
 > ## Login nodes are a shared resource
 >
@@ -51,11 +53,12 @@ head node is a quick and reliable way to discover and fix these issues.
 > suitable for the login node, or if there's another mechanism to get it done safely.
 {: .callout}
 
-You can always use the commands `top` and `ps ux` to list the processes that are running on the
-login node along with the amount of CPU and memory they are using. If this check reveals that the
-login node is somewhat idle, you can safely use it for your non-routine processing task. If
-something goes wrong &endash; the process takes too long, or doesn't respond &endash; you can use
-the `kill` command along with the *PID* to terminate the process.
+You can always use the commands `top` and `ps ux` to list the processes that are
+running on the login node along with the amount of CPU and memory they are
+using. If this check reveals that the login node is somewhat idle, you can
+safely use it for your non-routine processing task. If something goes wrong,
+e.g. the process takes too long or doesn't respond, you can use the `kill`
+command along with the *PID* to terminate the process.
 
 > ## Login Node Etiquette
 > 
@@ -75,8 +78,7 @@ the `kill` command along with the *PID* to terminate the process.
 > > `less create_directories.sh` and make sure it's not a Trojan horse.
 > > 
 > > Running resource-intensive applications is frowned upon. Unless you are sure it will not affect
-> > other users, do not run jobs like #1 (`python`) or #4 (custom MD code). If you're unsure, ask
-> > your friendly sysadmin for advice.
+> > other users, do not run jobs like #1 (`python`) or #4 (custom MD code).
 > {: .solution}
 {: .challenge}
 
