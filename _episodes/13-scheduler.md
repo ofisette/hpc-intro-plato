@@ -108,7 +108,8 @@ to the scheduler, we use the `{{ site.sched.submit.name }}` command.
 And that's all we need to do to submit a job. Our work is done -- now the scheduler takes over and
 tries to run the job for us. While the job is waiting to run, it goes into a list of jobs called 
 the *queue*. To check on our job's status, we check the queue using the command
-`{{ site.sched.status }} {{ site.sched.flag.user }}`.
+`{{ site.sched.status }} {{ site.sched.flag.user }}`. Once a job is finished, it
+will no longer be listed by `squeue`.
 
 ```
 {{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
