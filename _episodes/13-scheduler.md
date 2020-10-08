@@ -239,6 +239,7 @@ about how to make sure that you're using resources effectively in a later episod
 > > {{ site.sched.comment }} --time=00:01:00
 > > {{ site.sched.comment }} --nodes=1
 > > {{ site.sched.comment }} --ntasks-per-node=16
+> > {{ site.sched.comment }} --mem=30G
 > >
 > > echo -n "This script is running on "
 > > sleep 60 # time in seconds
