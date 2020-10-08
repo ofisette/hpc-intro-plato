@@ -236,7 +236,7 @@ about how to make sure that you're using resources effectively in a later episod
 > >
 > > ```
 > > #!/bin/bash
-> > {{ site.sched.comment }} --time=00:01:10
+> > {{ site.sched.comment }} --time=00:01:00
 > > {{ site.sched.comment }} --nodes=1
 > > {{ site.sched.comment }} --ntasks-per-node=16
 > >
