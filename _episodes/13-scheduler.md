@@ -225,7 +225,7 @@ about how to make sure that you're using resources effectively in a later episod
 
 > ## Submitting resource requests
 >
-> Submit a job that will use 1 full node and 1 minute of walltime.
+> Submit a job that requests 1 full node and 1 minute of walltime.
 >
 > > ## Solution
 > >
@@ -242,7 +242,7 @@ about how to make sure that you're using resources effectively in a later episod
 > > {{ site.sched.comment }} --mem=30G
 > >
 > > echo -n "This script is running on "
-> > sleep 60 # time in seconds
+> > sleep 20 # time in seconds
 > > hostname
 > > echo "This script has finished successfully."
 > > ```
@@ -252,8 +252,6 @@ about how to make sure that you're using resources effectively in a later episod
 > > {{ site.remote.prompt }} {{ site.sched.submit.name }} {{ site.sched.submit.options }} example-job.sh
 > > ```
 > > {: .bash}
-> >
-> > Why are the {{ site.sched.name }} runtime and `sleep` time not identical?
 > {: .solution}
 {: .challenge}
 
