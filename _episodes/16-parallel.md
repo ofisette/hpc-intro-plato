@@ -58,10 +58,12 @@ algorithm is easily implemented in parallel.
 
 We have provided a Python implementation, which uses MPI and Numpy.
 
-Download the Python executable using the following command:
+Download the Python executable and make it executable using the following
+commands:
 
 ```
 {{ site.remote.prompt }} wget {{ site.url }}{{ site.baseurl }}/files/pi.py
+{{ site.remote.prompt }} chmod +x pi.py
 ```
 {: .bash}
 

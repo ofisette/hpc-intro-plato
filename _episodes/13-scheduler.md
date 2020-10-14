@@ -66,7 +66,7 @@ whichever you prefer. Unsure? `nano` is a pretty good, basic choice.
 ```
 #!/bin/bash
 
-echo -n "This script is running on:"
+echo -n "This script is running on "
 hostname
 sleep 20
 echo "Job done!"
@@ -84,8 +84,7 @@ echo "Job done!"
 > > ```
 > > {: .bash}
 > > ```
-> > This script is running on:
-> > {{ site.remote.host }}
+> > This script is running on {{ site.remote.host }}
 > > Job done!
 > > ```
 > > {: .output}
@@ -157,7 +156,7 @@ script:
 #!/bin/bash
 {{ site.sched.comment }} {{ site.sched.flag.name }} new_name
 
-echo -n "This script is running on:"
+echo -n "This script is running on "
 hostname
 sleep 20
 echo "Job done!"
@@ -230,9 +229,9 @@ about how to make sure that you're using resources effectively in a later episod
 > > {{ site.sched.comment }} --ntasks-per-node=16
 > > {{ site.sched.comment }} --mem=30G
 > >
-> > echo -n "This script is running on:"
-> > sleep 20 # time in seconds
+> > echo -n "This script is running on "
 > > hostname
+> > sleep 20 # time in seconds
 > > echo "This script has finished successfully."
 > > ```
 > > {: .output}
@@ -260,7 +259,7 @@ minutes.
 {{ site.sched.comment }} {{ site.sched.flag.name }} long_job
 {{ site.sched.comment }} {{ site.sched.flag.time }} 00:00:30
 
-echo -n "This script is running on:"
+echo -n "This script is running on "
 hostname
 sleep 120 # time in seconds
 echo "This script has finished successfully."
