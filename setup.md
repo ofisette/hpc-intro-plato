@@ -11,16 +11,23 @@ line](https://wiki.usask.ca/x/CoAObw) workshop, or have equivalent skills.
 
 ## SSH
 
-Attendees must bring a laptop with a terminal and SSH capabilities.
+Attendees must bring a laptop with a terminal and SSH capabilities. We can help
+attendees prepare their laptop on request.
 
-- **Windows:** Install MobaXterm from
-  [http://mobaxterm.mobatek.net](http://mobaxterm.mobatek.net). Choose “Home
-  edition” (Installer edition)” on the download page. Alternatively, you can
-  use [PuTTY](https://www.putty.org/).
+- **Linux:** Terminal and SSH client are built in.
 
-- **Apple macOS:** Terminal and SSH programs are built in.
+- **Apple macOS:** Terminal and SSH client are built in.
 
-- **Linux:** Terminal and SSH programs are built in.
+- **Windows 10, recently updated (build 1809):** The PowerShell terminal and SSH
+  client are built in. If you prefer, you can use MobaXterm or Putty instead
+  (see the next entry).
+
+- **Older Windows:** Install MobaXterm
+  ([http://mobaxterm.mobatek.net](http://mobaxterm.mobatek.net)). Choose “Home
+  edition (Installer edition)” on the download page. Alternatively, you can
+  use PuTTY ([https://www.putty.org](https://www.putty.org/)). On Windows 10
+  older than build 1809, you can install OpenSSH for use in PowerShell as an
+  optional Windows component.
 
 ## Campus wifi connection
 

@@ -63,7 +63,7 @@ Go ahead and log in to the {{ site.remote.name }} HPC cluster at the {{ site.rem
 {: .bash}
 
 Remember to replace `{{ site.remote.user }}` by your own NSID. You will be asked
-for your password; this is the same one you use with other University of Saskatchewan resources, such as the PAWS Website. Watch out: the characters you type after the password prompt are not displayed on
+for your password; this is the same one you use with other University of Saskatchewan resources, such as the PAWS website. Watch out: the characters you type after the password prompt are not displayed on
 the screen. Normal output will resume once you press `Enter`.
 
 You are logging in using a program known as the secure shell or `ssh`. This establishes a temporary

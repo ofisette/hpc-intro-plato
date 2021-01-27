@@ -21,8 +21,9 @@ and using resources efficiently and responsibly.
 > - [Introduction to the Linux command line](https://wiki.usask.ca/x/CoAObw) or
 >   equivalent skills
 > - Attendees must bring a laptop with SSH capabilities: a terminal and SSH
->   client for Linux, MacOS or other UNIX systems; MobaXterm or PUTTY for
->   Windows. We can help attendees prepare their laptop on request.
+>   client for Linux, MacOS, other UNIX systems, or up-to-date Windows 10;
+>   MobaXterm or PUTTY for older Windows. We can help attendees prepare their
+>   laptop on request.
 > - Campus wifi users must be connected to the *uofs-secure* access point.
 > - Remote users must be connected to the network through the USask VPN.
 > - See the [Setup page](setup.md) for details.
