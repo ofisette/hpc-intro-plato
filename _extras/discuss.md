@@ -9,11 +9,11 @@ title: Discussion
 
 `scp` is useful, but what if we don't know the exact location of what we want to transfer? Or
 perhaps we're simply not sure which files we want to transfer yet. `sftp` is an interactive way of
-downloading and uploading files. Let's connect to a cluster, using `sftp`- you'll notice it works
+downloading and uploading files. Let's connect to the cluster, using `sftp`- you'll notice it works
 the same way as SSH:
 
 ```
-{{ site.local.prompt }} sftp yourUsername@remote.computer.address
+{{ site.local.prompt }} sftp yourUsername@plato.usask.ca
 ```
 {: .bash}
 
@@ -58,7 +58,7 @@ sftp> pwd
 ```
 {: .bash}
 ```
-Remote working directory: /global/home/yourUsername
+Remote working directory: /globalhome/yourUsername/HPC
 ```
 {: .output}
 
@@ -85,7 +85,7 @@ sftp> put config.toml
 ```
 {: .bash}
 ```
-Uploading config.toml to /global/home/yourUsername/config.toml
+Uploading config.toml to /globalhome/yourUsername/HPC/config.toml
 config.toml                                   100%  713     2.4KB/s   00:00 
 ```
 {: .output}
@@ -97,8 +97,8 @@ sftp> get config.toml
 ```
 {: .bash}
 ```
-Fetching /global/home/yourUsername/config.toml to config.toml
-/global/home/yourUsername/config.toml                               100%  713     9.3KB/s   00:00
+Fetching /globalhome/yourUsername/HPC/config.toml to config.toml
+/globalhome/yourUsername/HPC/config.toml                               100%  713     9.3KB/s   00:00
 ```
 {: .output}
 
@@ -111,7 +111,7 @@ sftp> put -r content/
 ```
 {: .bash}
 ```
-Uploading content/ to /global/home/yourUsername/content
+Uploading content/ to /globalhome/yourUsername/HPC/content
 Entering content/
 content/scheduler.md              100%   11KB  21.4KB/s   00:00
 content/index.md                  100% 1051     7.2KB/s   00:00
