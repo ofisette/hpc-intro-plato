@@ -64,7 +64,7 @@ To transfer *to* another computer:
 > > Now, transfer it to {{ site.remote.name }}:
 > >
 > > ```
-> > {{ site.local.prompt }} scp calling-card.txt {{ site.remote.user }}@{{ site.remote.login }}:/home/nsid/
+> > {{ site.local.prompt }} scp calling-card.txt {{ site.remote.user }}@{{ site.remote.login }}:/globalhome/nsid/HPC/
 > > ```
 > > {: .bash}
 > >
@@ -87,11 +87,11 @@ put a file directly in your home directory.
 To recursively copy a directory, we just add the `-r` (recursive) flag:
 
 ```
-{{ site.local.prompt }} scp -r some-local-folder/ {{ site.remote.user }}@{{ site.remote.login }}:target-directory/
+{{ site.local.prompt }} scp -r some-local-folder/ {{ site.remote.user }}@{{ site.remote.login }}:
 ```
 {: .bash}
 
-This will create the directory 'some-local-folder' on the remote system, 
+This will create the directory `some-local-folder` on the remote system, 
 and recursively copy all the content from the local to the remote system.
 Existing files on the remote system will not be modified, unless
 there are files from the local system with the same name, in which
@@ -117,11 +117,11 @@ To download *from* another computer:
 > The syntax is similar to `scp`. To transfer *to* another computer with commonly used options:
 >
 > ```
-> {{ site.local.prompt }} rsync -avzP path/to/local/file.txt {{ site.remote.user }}@{{ site.remote.login }}:directory/path/on/{{ site.remote.name }}/
+> {{ site.local.prompt }} rsync -rvzP path/to/local/file.txt {{ site.remote.user }}@{{ site.remote.login }}:directory/path/on/{{ site.remote.name }}/
 > ```
 > {: .bash}
 >
-> The `a` (archive) option preserves file timestamps and permissions among other things; the `v`
+> The `r` (recursive) option copies files and directories recursively; the `v`
 > (verbose) option gives verbose output to help monitor the transfer; the `z` (compression) option
 > compresses the file during transit to reduce size and transfer time; and the `P`
 > (partial/progress) option preserves partially transferred files in case of an interruption and
@@ -130,7 +130,7 @@ To download *from* another computer:
 > To recursively copy a directory, we can use the same options:
 >
 > ```
-> {{ site.local.prompt }} rsync -avzP path/to/local/dir {{ site.remote.user }}@{{ site.remote.login }}:directory/path/on/{{ site.remote.name }}/
+> {{ site.local.prompt }} rsync -rvzP path/to/local/dir {{ site.remote.user }}@{{ site.remote.login }}:directory/path/on/{{ site.remote.name }}/
 > ```
 > {: .bash}
 > 
@@ -141,12 +141,10 @@ To download *from* another computer:
 > and the contents of the source directory will be copied directly into 
 > the destination directory. 
 > 
-> The `a` (archive) option implies recursion.
-> 
 > To download a file, we simply change the source and destination:
 >
 > ```
-> {{ site.local.prompt }} rsync -avzP {{ site.remote.user }}@{{ site.remote.login }}:path/on/{{ site.remote.name }}/file.txt path/to/local/
+> {{ site.local.prompt }} rsync -rvzP {{ site.remote.user }}@{{ site.remote.login }}:path/on/{{ site.remote.name }}/file.txt path/to/local/
 > ```
 > {: .bash}
 {: .callout}
