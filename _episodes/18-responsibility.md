@@ -189,36 +189,30 @@ transfer earlier.
 >    ```
 >    {: .bash}
 > 2. ```
->    {{ site.local.prompt }} rsync -ra data {{ site.remote.user }}@{{ site.remote.login }}:~/
+>    {{ site.local.prompt }} rsync -rz data {{ site.remote.user }}@{{ site.remote.login }}:~/
 >    ```
 >    {: .bash}
 > 3. ```
->    {{ site.local.prompt }} rsync -raz data {{ site.remote.user }}@{{ site.remote.login }}:~/
+>    {{ site.local.prompt }} tar -cvf data.tar data
+>    {{ site.local.prompt }} rsync -rz data.tar {{ site.remote.user }}@{{ site.remote.login }}:~/
 >    ```
 >    {: .bash}
 > 4. ```
->    {{ site.local.prompt }} tar -cvf data.tar data
->    {{ site.local.prompt }} rsync -raz data.tar {{ site.remote.user }}@{{ site.remote.login }}:~/
->    ```
->    {: .bash}
-> 5. ```
 >    {{ site.local.prompt }} tar -cvzf data.tar.gz data
->    {{ site.local.prompt }} rsync -ra data.tar.gz {{ site.remote.user }}@{{ site.remote.login }}:~/
+>    {{ site.local.prompt }} rsync -r data.tar.gz {{ site.remote.user }}@{{ site.remote.login }}:~/
 >    ```
 >    {: .bash}
 >
 > > ## Solution
 > >
 > > 1. `scp` will recursively copy the directory. This works, but without compression.
-> > 2. `rsync -ra` works like `scp -r`, but preserves file information like creation times. This is
-> >    marginally better.
-> > 3. `rsync -raz` adds compression, which will save some bandwidth. If you have a strong CPU at
+> > 2. `rsync -rz` adds compression, which will save some bandwidth. If you have a strong CPU at
 > >    both ends of the line, and you're on a slow network, this is a good choice.
-> > 4. This command first uses `tar` to merge everything into a single file, then `rsync -z` to 
+> > 3. This command first uses `tar` to merge everything into a single file, then `rsync -z` to 
 > >    transfer it with compression. With this large *number* of files, metadata overhead can hamper
 > >    your transfer, so this is a good idea.
-> > 5. This command uses `tar -z` to compress the archive, then `rsync` to transfer it. This may 
-> >    perform similarly to #4, but in most cases (for large datasets), it's the best combination
+> > 4. This command uses `tar -z` to compress the archive, then `rsync` to transfer it. This may 
+> >    perform similarly to #3, but in most cases (for large datasets), it's the best combination
 > >    of high throughput and low latency (making the most of your time and network connection).
 > {: .solution}
 {: .challenge}
