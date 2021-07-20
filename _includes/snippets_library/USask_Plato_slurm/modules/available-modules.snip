@@ -2,32 +2,33 @@
 [Some output removed for clarity]
 
 ------------------------- Cluster specific MPI-dependent modules -------------------------
-   ocean/2.2.0    ocean/2.5.2 (D)    quantumespresso/5.2.0 (chem)
+   ostrich/07.01.01    ostrich/17.12.19 (D)
 
 ------------------------------- MPI-dependent avx modules --------------------------------
-   abinit/8.2.2               (chem)      netcdf-mpi/4.4.1.1           (io,D)
-   abyss/1.5.2                (bio)       nwchem/6.6.revision27746     (chem)
-   abyss/1.9.0                (bio,D)     openfoam/3.0.1               (phys)
-   boost-mpi/1.60.0           (t,D)       openfoam/4.1                 (phys)
-   boost-mpi/1.65.1           (t)         openfoam/5.0                 (phys,D)
-   cdo/1.7.2                  (geo)       openmm/7.1.1                 (chem)
-   cgns/3.3.1                 (phys)      osu-micro-benchmarks/5.3.2   (t)
-   cp2k/4.1                   (chem)      p4est/1.1                    (math)
+   boost-mpi/1.72.0 (t)       hdf5-mpi/1.10.6          (io)    p4est/2.2    (math)
+   cdo/1.9.8        (geo)     mpi4py/3.0.3             (t)     petsc/3.14.1 (t)
+   fftw-mpi/3.3.8   (math)    netcdf-fortran-mpi/4.5.2 (io)    slepc/3.14.2
+   gromacs/2020.4   (chem)    netcdf-mpi/4.7.4         (io)    yaxt/0.9.0   (t)
 
------------------------------ MPI-dependent avx2 modules -------------------------------
-abinit/8.2.2     (chem)      lammps/20170331                    plumed/2.3.0        (chem)
-abyss/1.9.0      (bio)       mrbayes/3.2.6            (bio)     pnetcdf/1.8.1       (io)
-boost-mpi/1.60.0 (t)         ncl/6.4.0                          quantumespresso/6.0 (chem)
-cdo/1.7.2        (geo)       ncview/2.1.7             (vis)     ray/2.3.1           (bio)
+---------------------- Cluster specific Compiler-dependent modules -----------------------
+   thrift/0.13.0
+
+----------------------------- Compiler-dependent avx modules -----------------------------
+   boost/1.72.0    (t)        gdal/3.0.4        (geo)     netcdf-fortran/4.5.2 (io)
+   cuda/11.0       (t)        genometools/1.6.1 (bio)     netcdf/4.7.4         (io)
+   cufflinks/2.2.1 (bio)      gsl/2.6           (math)    ntl/11.4.3           (math)
+   eccodes/2.15.0  (geo)      hdf5/1.10.6       (io)      openmpi/4.0.3        (L,m)
+   eccodes/2.19.0  (geo,D)    libcdms/3.1.2               suitesparse/5.7.1    (math)
+   fftw/3.3.8      (math)     libdrs/3.1.2                transdecoder/5.5.0   (bio)
 
 [Most output removed for clarity]
 
-Where:
+  Where:
    S:        Module is Sticky, requires --force to unload or purge
    bio:      Bioinformatic libraries/apps / Logiciels de bioinformatique
    m:        MPI implementations / Implémentations MPI
    math:     Mathematical libraries / Bibliothèques mathématiques
-   L:        Le module est chargé
+   L:        Module is loaded
    io:       Input/output software / Logiciel d'écriture/lecture
    t:        Tools for development / Outils de développement
    vis:      Visualisation software / Logiciels de visualisation
@@ -37,7 +38,7 @@ Where:
    Aliases:  Aliases exist: foo/1.2.3 (1.2) means that "module load foo/1.2" will load foo/1.2.3
    D:        Default Module
 
-Use "module spider" to find all possible modules.
+Use "module spider" to find all possible modules and extensions.
 Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 ```
 {: .output}
