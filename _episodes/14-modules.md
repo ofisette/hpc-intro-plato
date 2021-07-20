@@ -83,9 +83,9 @@ so
 
 ```
 Currently Loaded Modules:
-  1) nixpkgs/16.09   (S)      4) icc/.2016.4.258   (H)   7) openmpi/2.1.1 (m)
-  2) imkl/11.3.4.258 (math)   5) ifort/.2016.4.258 (H)   8) StdEnv/2016.4 (S)
-  3) gcccore/.5.4.0  (H)      6) intel/2016.4      (t)
+  1) CCconfig             4) imkl/2020.1.217  (math)   7) libfabric/1.10.1
+  2) gentoo/2020    (S)   5) intel/2020.1.217 (t)      8) openmpi/4.0.3    (m)
+  3) gcccore/.9.3.0 (H)   6) ucx/1.8.0                 9) StdEnv/2020      (S)
 
 [Some output removed for clarity]
 ```
@@ -94,21 +94,21 @@ Currently Loaded Modules:
 ## Loading and unloading software
 
 To load a software module, use `module load`.
-In this example we will use Python 3.
+In this example we will use R, a software environment for statistics.
 
-Initially, Python 3 is not loaded. 
+Initially, R is not loaded. 
 We can test this by using the `which` command.
 `which` looks for programs the same way that Bash does,
 so we can use it to tell us where a particular piece of software is stored.
 
 ```
-{{ site.remote.prompt }} which python3
+{{ site.remote.prompt }} which R
 ```
 {: .bash}
 
 {% include {{ site.snippets }}/modules/missing-python.snip %}
 
-We can load the `python3` command with `module load`:
+We can load the `R` command with `module load`:
 
 {% include {{ site.snippets }}/modules/module-load-python.snip %}
 
@@ -138,8 +138,7 @@ it added a directory to the beginning of our `$PATH`. Let's examine what's there
 {% include {{ site.snippets }}/modules/python-ls-dir-output.snip %}
 
 Taking this to its conclusion, `module load` will add software to your `$PATH`. It "loads"
-software. A special note on this - depending on which version of the `module` program that is
-installed at your site, `module load` will also load required software dependencies.
+software. The `module load` command will also load required software dependencies.
 
 {% include {{ site.snippets }}/modules/software-dependencies.snip %}
 
@@ -162,8 +161,7 @@ Let's examine the output of `module avail gcc`.
 [Some output removed for clarity]
 
 -------------------------------------- Core Modules --------------------------------------
-   gcc/4.8.5 (t)    gcc/5.4.0 (t,D)    gcc/7.3.0 (t)    gcc/9.1.0 (t)
-   gcc/4.9.4 (t)    gcc/6.4.0 (t)      gcc/8.3.0 (t)
+   gcc/8.4.0 (t)    gcc/9.3.0 (t,D)    gcc/10.2.0 (t)
 
 [Some output removed for clarity]
 ```
@@ -173,29 +171,29 @@ Let's examine the output of `module avail gcc`.
 
 > ## Using software modules in scripts
 >
-> Create a job that is able to run `python3 --version`. Remember, no software is loaded by default!
+> Create a job that is able to run `R --version`. Remember, no software is loaded by default!
 > Running a job is just like logging on to the system (you should not assume a module loaded on the
 > login node is loaded on a compute node).
 >
 > > ## Solution
 > >
 > > ```
-> > {{ site.remote.prompt }} nano python-module.sh
-> > {{ site.remote.prompt }} cat python-module.sh
+> > {{ site.remote.prompt }} nano job-with-module.sh
+> > {{ site.remote.prompt }} cat job-with-module.sh
 > > ```
 > > {: .bash}
 > >
 > > ```
 > > #!/bin/bash
 > > 
-> > module load python3
+> > module load r/4.0.2
 > > 
-> > python3 --version
+> > R --version
 > > ```
 > > {: .output}
 > > 
 > > ```
-> > {{ site.remote.prompt }} {{ site.sched.submit.name }} {{ site.sched.submit.options }} python-module.sh
+> > {{ site.remote.prompt }} {{ site.sched.submit.name }} {{ site.sched.submit.options }} job-with-module.sh
 > > ```
 > > {: .bash}
 > {: .solution}

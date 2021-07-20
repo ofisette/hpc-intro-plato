@@ -7,55 +7,39 @@ To demonstrate, let's use `module list`. `module list` shows all loaded software
 
 ```
 Currently Loaded Modules:
-  1) nixpkgs/16.09   (S)      4) icc/.2016.4.258   (H)   7) openmpi/2.1.1 (m)
-  2) imkl/11.3.4.258 (math)   5) ifort/.2016.4.258 (H)   8) StdEnv/2016.4 (S)
-  3) gcccore/.5.4.0  (H)      6) intel/2016.4      (t)   9) python/3.7.4  (t)
+  1) CCconfig                 5) intel/2020.1.217 (t)   9) StdEnv/2020 (S)
+  2) gentoo/2020     (S)      6) ucx/1.8.0             10) java/13.0.2 (t)
+  3) gcccore/.9.3.0  (H)      7) libfabric/1.10.1      11) r/4.0.2     (t)
+  4) imkl/2020.1.217 (math)   8) openmpi/4.0.3    (m)
 
 [Some output removed for clarity]
 ```
 {: .output}
 
-```
-{{ site.remote.prompt }} module load beast
-{{ site.remote.prompt }} module list
-```
-{: .bash}
+In this case, loading the `r` module also loaded `java/13.0.2`.
 
 ```
-
-Currently Loaded Modules:
-  1) nixpkgs/16.09   (S)      5) ifort/.2016.4.258 (H)   9) python/3.7.4     (t)
-  2) imkl/11.3.4.258 (math)   6) intel/2016.4      (t)  10) java/1.8.0_121   (t)
-  3) gcccore/.5.4.0  (H)      7) openmpi/2.1.1     (m)  11) beagle-lib/2.1.2 (bio)
-  4) icc/.2016.4.258 (H)      8) StdEnv/2016.4     (S)  12) beast/2.4.0      (bio)
-
-[Some output removed for clarity]
-```
-{: .output}
-
-So in this case, loading the `beast` module (a bioinformatics software package), also loaded
-`java/1.8.0_121` and `beagle-lib/2.1.2` as well. Let's try unloading the `beast` package.
-
-```
-{{ site.remote.prompt }} module unload beast
+{{ site.remote.prompt }} module unload r
 {{ site.remote.prompt }} module list
 ```
 {: .bash}
 
 ```
 Currently Loaded Modules:
-  1) nixpkgs/16.09   (S)      4) icc/.2016.4.258   (H)   7) openmpi/2.1.1 (m)
-  2) imkl/11.3.4.258 (math)   5) ifort/.2016.4.258 (H)   8) StdEnv/2016.4 (S)
-  3) gcccore/.5.4.0  (H)      6) intel/2016.4      (t)   9) python/3.7.4  (t)
+  1) CCconfig             4) intel/2020.1.217 (t)   7) openmpi/4.0.3 (m)
+  2) gentoo/2020    (S)   5) ucx/1.8.0              8) StdEnv/2020   (S)
+  3) gcccore/.9.3.0 (H)   6) libfabric/1.10.1
 
 [Some output removed for clarity]
 ```
 {: .output}
 
 So using `module unload` "un-loads" a module along with its dependencies. If we wanted to unload
-everything at once, we could run `module purge` (unloads everything).
+everything at once, we could run `module purge`.
 
 ```
+{{ site.remote.prompt }} module load r
+{{ site.remote.prompt }} module load python
 {{ site.remote.prompt }} module purge
 ```
 {: .bash}
@@ -64,10 +48,12 @@ everything at once, we could run `module purge` (unloads everything).
 The following modules were not unloaded:
   (Use "module --force purge" to unload all):
 
-  1) StdEnv/2016.4   3) imkl/11.3.4.258   5) icc/.2016.4.258     7) intel/2016.4
-  2) nixpkgs/16.09   4) gcccore/.5.4.0    6) ifort/.2016.4.258   8) openmpi/2.1.1
+  1) CCconfig         4) imkl/2020.1.217    7) libfabric/1.10.1
+  2) gentoo/2020      5) intel/2020.1.217   8) openmpi/4.0.3
+  3) gcccore/.9.3.0   6) ucx/1.8.0          9) StdEnv/2020
 ```
 {: .output}
 
-Note that `module purge` is informative. It lets us know that all but a default set of packages 
-have been unloaded (and how to actually unload these if we truly so desired).
+Note that `module purge` does not, by default, unload the core modules that were
+already loaded when we logged in. Therefore, `module purge` is useful to “reset”
+your environment.
