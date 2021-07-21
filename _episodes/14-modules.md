@@ -108,7 +108,8 @@ so we can use it to tell us where a particular piece of software is stored.
 
 {% include {{ site.snippets }}/modules/missing-python.snip %}
 
-We can load the `R` command with `module load`:
+We can load the `R` command with `module load` (be careful of the case of the
+letters, `r` vs `R`):
 
 {% include {{ site.snippets }}/modules/module-load-python.snip %}
 
