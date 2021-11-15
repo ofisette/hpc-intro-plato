@@ -246,7 +246,7 @@ about how to make sure that you're using resources effectively in a later episod
 {% include {{ site.snippets }}/scheduler/print-sched-variables.snip %}
 
 Resource requests are typically binding. If you exceed them, your job will be killed. Let's use
-walltime as an example. We will request 30 seconds of walltime, and attempt to run a job for two
+walltime as an example. We will request 1 minute of walltime, and attempt to run a job for two
 minutes.
 
 ```
@@ -257,7 +257,7 @@ minutes.
 ```
 #!/bin/bash
 {{ site.sched.comment }} {{ site.sched.flag.name }} long_job
-{{ site.sched.comment }} {{ site.sched.flag.time }} 00:00:30
+{{ site.sched.comment }} {{ site.sched.flag.time }} 00:01:00
 
 echo -n "This script is running on "
 hostname
