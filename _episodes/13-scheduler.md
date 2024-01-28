@@ -33,15 +33,6 @@ as in your laptop.
 {% include figure.html max-width="75%" file="/fig/restaurant_queue_manager.svg"
 alt="Compare a job scheduler to a waiter in a restaurant" caption="" %}
 
-> ## Job scheduling roleplay (optional)
-> 
-> Your instructor will divide you into groups taking on different roles in the cluster (users,
-> compute nodes and the scheduler). Follow their instructions as they lead you through this
-> exercise. You will be emulating how a job scheduling system works on the cluster.
-> 
-> [*notes for the instructor here*](../guide)
-{: .discussion}
-
 The scheduler used in this lesson is {{ site.sched.name }}. Although {{ site.sched.name }} is not
 used everywhere, running jobs is quite similar regardless of what software is being used. The exact
 syntax might change, but the concepts remain the same.
@@ -226,8 +217,8 @@ about how to make sure that you're using resources effectively in a later episod
 > > #!/bin/bash
 > > {{ site.sched.comment }} --time=00:01:00
 > > {{ site.sched.comment }} --nodes=1
-> > {{ site.sched.comment }} --ntasks-per-node=16
-> > {{ site.sched.comment }} --mem=30G
+> > {{ site.sched.comment }} --ntasks-per-node=40
+> > {{ site.sched.comment }} --mem=185G
 > >
 > > echo -n "This script is running on "
 > > hostname

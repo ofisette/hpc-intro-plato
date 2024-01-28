@@ -162,7 +162,8 @@ Let's examine the output of `module avail gcc`.
 [Some output removed for clarity]
 
 -------------------------------------- Core Modules --------------------------------------
-   gcc/8.4.0 (t)    gcc/9.3.0 (t,D)    gcc/10.2.0 (t)
+   gcc/8.4.0 (t)      gcc/10.2.0 (t)    gcc/11.3.0 (t)
+   gcc/9.3.0 (t,D)    gcc/10.3.0 (t)
 
 [Some output removed for clarity]
 ```
@@ -187,7 +188,7 @@ Let's examine the output of `module avail gcc`.
 > > ```
 > > #!/bin/bash
 > > 
-> > module load r/4.0.2
+> > module load r/4.3.1
 > > 
 > > R --version
 > > ```

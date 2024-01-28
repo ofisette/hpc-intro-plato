@@ -1,25 +1,36 @@
 ```
 [Some output removed for clarity]
 
-------------------------- Cluster specific MPI-dependent modules -------------------------
-   ostrich/07.01.01    ostrich/17.12.19 (D)
-
-------------------------------- MPI-dependent avx modules --------------------------------
-   boost-mpi/1.72.0 (t)       hdf5-mpi/1.10.6          (io)    p4est/2.2    (math)
-   cdo/1.9.8        (geo)     mpi4py/3.0.3             (t)     petsc/3.14.1 (t)
-   fftw-mpi/3.3.8   (math)    netcdf-fortran-mpi/4.5.2 (io)    slepc/3.14.2
-   gromacs/2020.4   (chem)    netcdf-mpi/4.7.4         (io)    yaxt/0.9.0   (t)
-
----------------------- Cluster specific Compiler-dependent modules -----------------------
-   thrift/0.13.0
-
------------------------------ Compiler-dependent avx modules -----------------------------
-   boost/1.72.0    (t)        gdal/3.0.4        (geo)     netcdf-fortran/4.5.2 (io)
-   cuda/11.0       (t)        genometools/1.6.1 (bio)     netcdf/4.7.4         (io)
-   cufflinks/2.2.1 (bio)      gsl/2.6           (math)    ntl/11.4.3           (math)
-   eccodes/2.15.0  (geo)      hdf5/1.10.6       (io)      openmpi/4.0.3        (L,m)
-   eccodes/2.19.0  (geo,D)    libcdms/3.1.2               suitesparse/5.7.1    (math)
-   fftw/3.3.8      (math)     libdrs/3.1.2                transdecoder/5.5.0   (bio)
+------------------------------- MPI-dependent avx2 modules -------------------------------
+   abyss/2.1.5                  (bio)       neuron/8.0.0                  (bio,D)
+   abyss/2.2.5                  (bio,D)     opencarp/4.0
+   adol-c/2.7.2                             opencascade/7.5.2             (D)
+   alpscore/2.2.0               (phys,D)    opencoarrays/2.9.2
+   amber/18.14-18.17            (chem)      openfoam-extend/4.1           (phys)
+   amber/20.9-20.15             (chem)      openfoam/v2006                (phys)
+   amber/20.12-20.15            (chem,D)    openfoam/v2012                (phys)
+   ambertools/20                            openfoam/v2112                (phys)
+   ambertools/21                            openfoam/v2206                (phys)
+   ambertools/23                (D)         openfoam/v2212                (phys)
+   apbs/1.3                     (chem)      openfoam/v2306                (phys)
+   arpack-ng/3.9.0              (math,D)    openfoam/8                    (phys)
+   aspect/2.3.0                             openfoam/9                    (phys)
+   aspect/2.4.0                 (D)         openfoam/10                   (phys)
+   astrid/2.2.1                             openfoam/11                   (phys,D)
+   blacs/1.1                    (math)      openmc/0.13.2
+   boost-mpi/1.72.0             (t)         openmc/0.13.3                 (D)
+   boost-mpi/1.80.0             (t,D)       openmm-alphafold/7.5.1
+   cantera/2.4.0                (chem)      openmm/7.5.0                  (chem)
+   cantera/2.5.1                (chem)      openmm/7.7.0                  (chem)
+   cantera/2.6.0                (chem,D)    openmm/8.0.0                  (chem,D)
+   cdo/1.9.8                    (geo)       opensees/3.2.0
+   cdo/2.0.4                    (geo)       opensees/3.5.0                (D)
+   cdo/2.0.5                    (geo)       orca/4.2.1                    (chem)
+   cdo/2.2.1                    (geo,D)     p4est/2.2                     (math)
+   cgns/3.4.1                   (phys)      p4est/2.3.2                   (math)
+   cgns/4.1.0                   (phys)      p4est/2.8.5                   (math,D)
+   cgns/4.1.2                   (phys,D)    paraview-offscreen-gpu/5.8.0  (vis)
+   cp2k/8.2                     (chem)      paraview-offscreen-gpu/5.9.1  (vis)
 
 [Most output removed for clarity]
 
@@ -37,6 +48,11 @@
    phys:     Physics libraries/apps / Logiciels de physique
    Aliases:  Aliases exist: foo/1.2.3 (1.2) means that "module load foo/1.2" will load foo/1.2.3
    D:        Default Module
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
 
 Use "module spider" to find all possible modules and extensions.
 Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
