@@ -26,7 +26,7 @@ remote:
   name: "Plato"
   login: "plato.usask.ca"
   host: "platolgn01"
-  node: "plato310"
+  node: "plato418"
   location: "University of Saskatchewan"
   homedir: "/home"
   user: "nsid"
